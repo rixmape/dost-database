@@ -3,7 +3,10 @@ import pandas as pd
 
 
 def sample_address():
-    """Returns a tuple containing address information."""
+    """
+    Returns a tuple containing the following address information in order:
+    purok, barangay, municipality/city, zipcode, province, and region.
+    """
     df = pd.read_csv("assets/geodata.csv")
     df.iloc[:, -4:] = df.iloc[:, -4:].astype(int)
 
