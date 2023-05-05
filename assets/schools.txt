@@ -1,0 +1,372 @@
+**National Capital Region (NCR)**
+Adamson University
+Adventist University of the Philippines
+AMA Computer University
+Arellano University
+Asian Institute of Journalism and Communication
+Asian Institute of Management
+Asian Social Institute
+Ateneo de Manila University
+Centro Escolar University
+City University of Pasay
+De La Salle College of Saint Benilde
+De La Salle University
+Emilio Aguinaldo College
+Far Eastern University
+FEATI University
+Informatics College
+Lyceum of the Philippines University
+Manila Central University
+Manila Tytana Colleges
+National Teachers College
+Olivarez College
+Pamantasan ng Lungsod ng Maynila
+Philippine Christian University
+Philippine College of Criminology
+Philippine Normal University
+Philippine School of Business Administration
+Polytechnic University of the Philippines
+Rizal Technological University
+San Beda University
+San Sebastian College - Recoletos
+Santa Isabel College Manila
+St. Paul University Manila
+Technological Institute of the Philippines
+Technological University of the Philippines
+University of Asia and the Pacific
+University of Manila
+University of Perpetual Help System DALTA
+University of Santo Tomas
+University of the East
+University of the Philippines Diliman
+
+**Ilocos Region (Region I)**
+Divine Word College of Laoag
+Don Mariano Marcos Memorial State University
+Mariano Marcos State University
+Northwestern University
+University of Northern Philippines
+
+**Cagayan Valley (Region II)**
+Cagayan State University
+Isabela State University
+Nueva Vizcaya State University
+University of Saint Louis Tuguegarao
+
+**Central Luzon (Region III)**
+Angeles University Foundation
+Araullo University
+Baliuag University
+Bataan Peninsula State University
+Bulacan Agricultural State College
+Bulacan State University
+Central Luzon State University
+Colegio de San Juan de Letran
+Don Honorio Ventura Technological State University
+Holy Angel University
+Jose Rizal University
+Mabalacat College
+Nueva Ecija University of Science and Technology
+Our Lady of Fatima University
+Pampanga State Agricultural University
+Philippine Merchant Marine Academy
+Saint Louis College
+Tarlac State University
+University of the Assumption
+University of the Philippines Diliman Extension Program in Pampanga
+Wesleyan University-Philippines
+
+**CALABARZON (Region IV-A)**
+Batangas State University
+Cavite State University
+Colegio de San Juan de Letran - Calamba
+De La Salle University - Dasmariñas
+First Asia Institute of Technology and Humanities
+Laguna State Polytechnic University
+Lyceum of the Philippines University - Laguna
+Polytechnic University of the Philippines - Santa Rosa Campus
+San Beda College Alabang
+San Pablo Colleges
+University of Batangas
+University of Perpetual Help System - Biñan Campus
+University of Perpetual Help System - Dalta Campus
+University of Rizal System - Morong Campus
+University of Santo Tomas - Santa Rosa Campus
+University of the Philippines Diliman Extension Program in Santa Rosa
+University of the Philippines Los Baños
+Wesleyan University-Philippines - Cabanatuan City Campus
+
+**MIMAROPA Region**
+Coron Technical and Maritime Academy
+Divine Word College of Calapan
+Holy Trinity University
+Mindoro State College of Agriculture and Technology
+MIMAROPA State University - Balabac Campus
+MIMAROPA State University - Bansud Campus
+MIMAROPA State University - Calapan Campus
+MIMAROPA State University - Claveria Campus
+MIMAROPA State University - Gasan Campus
+MIMAROPA State University - Main Campus
+MIMAROPA State University - Sablayan Campus
+MIMAROPA State University - Santa Cruz Campus
+Palawan State University
+Romblon State University
+Southern Luzon State University - Romblon Campus
+Western Philippines University
+
+**Bicol (Region V)**
+Ago Medical and Educational Center - Bicol Christian College of Medicine
+Ateneo de Naga University
+Bicol State College of Applied Sciences and Technology
+Bicol University
+Camarines Norte State College
+Camarines Sur Polytechnic Colleges
+Catanduanes State University
+Central Bicol State University of Agriculture
+Dr. Emilio B. Espinosa Sr. Memorial State College of Agriculture and Technology
+Mariners Polytechnic Colleges Foundation - Canaman Campus
+Naga College Foundation
+Partido State University
+Sorsogon State University
+University of Nueva Caceres
+University of Saint Anthony
+University of Santo Tomas - Legazpi Campus
+University of the Philippines Visayas - Miagao Campus Extension in Guinobatan, Albay
+
+**Western Visayas (Region VI)**
+Aklan Catholic College
+Aklan State University
+Capiz State University
+Central Philippines State University - Negros Occidental
+Central Philippine University
+Colegio de San Agustin - Bacolod
+Colegio de San Lorenzo Ruiz de Manila - Iloilo Campus
+Colegio del Sagrado Corazon de Jesus - Roxas City
+Colegio San Agustin - Iloilo
+Filamer Christian University
+Guimaras State College
+Iloilo Doctors' College
+Iloilo Science and Technology University
+John B. Lacson Foundation Maritime University - Arevalo
+John B. Lacson Foundation Maritime University - Molo
+Northern Iloilo Polytechnic State College
+Northern Negros State College of Science and Technology
+Northwest Samar State University - Calbayog City Campus
+St. Anthony's College - Antique
+St. Paul University Iloilo
+San Jose Recoletos Memorial School
+Universidad de Iloilo
+University of Antique
+University of San Agustin
+University of the Philippines Visayas - Iloilo City Campus
+West Visayas State University
+Western Institute of Technology
+Western Visayas College of Science and Technology
+
+**Central Visayas (Region VII)**
+Asian College of Technology International Educational Foundation
+Asian College of Technology
+Badian Island Resort and Spa - International Hospitality School
+Bohol Island State University
+Cebu Doctors' University
+Cebu Institute of Medicine
+Cebu Institute of Technology - University
+Cebu International School
+Cebu Normal University
+Cebu Technological University - Argao Campus
+Cebu Technological University - Barili Campus
+Cebu Technological University - Carmen Campus
+Cebu Technological University - Daanbantayan Campus
+Cebu Technological University - Danao City Campus
+Cebu Technological University - Moalboal Campus
+Cebu Technological University - San Francisco Campus
+Cebu Technological University - Tuburan Campus
+Cebu Technological University - Main Campus
+Colegio de la Inmaculada Concepcion - Cebu City
+Don Bosco Technology Center
+Dumaguete Academy for Culinary Arts
+Foundation University
+Holy Name University
+Negros Oriental State University
+St. Paul University Dumaguete
+Southwestern University
+Silliman University
+University of Bohol
+University of Cebu
+University of San Carlos
+University of the Philippines Cebu
+Visayas State University
+
+**Eastern Visayas (Region VIII)**
+Eastern Samar State University
+Eastern Visayas State University - Burauen Campus
+Eastern Visayas State University - Canaman Campus
+Eastern Visayas State University - Carigara Campus
+Eastern Visayas State University - Dulag Campus
+Eastern Visayas State University - Guiuan Campus
+Eastern Visayas State University - Ormoc Campus
+Eastern Visayas State University - Tacloban City Campus
+Holy Infant College
+Leyte Normal University
+Naval State University
+Northwest Samar State University - Calbayog City Campus
+Palompon Institute of Technology
+Saint Joseph College - Maasin
+Saint Mary's College of Leyte Foundation
+Samar College
+Samar State University
+Southern Leyte State University
+Southern Leyte State University - Tomas Oppus Campus
+Saint Paul School of Professional Studies
+University of Eastern Philippines
+Visayas State University - Alangalang Campus
+Visayas State University - Baybay City Campus
+Visayas State University - Isabel Campus
+Visayas State University - Tolosa Campus
+
+**Zamboanga Peninsula (Region IX)**
+Ateneo de Zamboanga University
+Claret College of Isabela
+Immaculate Conception Archdiocesan School
+Jose Rizal Memorial State University - Dapitan Campus
+Jose Rizal Memorial State University - Dipolog Campus
+Jose Rizal Memorial State University - Katipunan Campus
+Jose Rizal Memorial State University - Main Campus
+La Consolacion College - Zamboanga City
+Medina College - Ozamiz City
+Mindanao State University - Buug Campus
+Mindanao State University - Sulu
+Saint Columban College
+Saint Vincent College - Dipolog City
+Southern City Colleges
+Southern Mindanao Colleges
+Universidad de Zamboanga
+Universidad de Zamboanga - Annex Campus
+Western Mindanao State University - Alicia Campus
+Western Mindanao State University - Aurora Campus
+Western Mindanao State University - Ipil Campus
+Western Mindanao State University - Malangas Campus
+Western Mindanao State University - Olutanga Campus
+Western Mindanao State University - Pagadian City Campus
+Western Mindanao State University - Zamboanga City Campus
+Zamboanga City State Polytechnic College
+Zamboanga State College of Marine Sciences and Technology
+
+**Northern Mindanao (Region X)**
+Bukidnon State University
+Capitol University
+Cagayan de Oro College - Phinma Education Network
+Cagayan de Oro College - Carmen Campus
+Cagayan de Oro College - Basic Education Department
+Central Mindanao University - Bukidnon Campus
+Claveria Institute of Technology
+Colegio de San Francisco Javier
+Divine Mercy College Foundation
+Immanuel Bible College
+La Salle Academy - Ozamiz
+Liceo de Cagayan University
+Lourdes College - Cagayan de Oro
+Mindanao State University - Iligan Institute of Technology
+Misamis Oriental State College of Agriculture and Technology
+Mountain View College
+Northwestern Mindanao State College of Science and Technology
+Philippine College of Technology
+Sacred Heart of Jesus Montessori School
+Saint Francis Xavier College - San Francisco
+Saint Michael College of Caraga
+San Isidro College
+Southern Philippines Agri-Business and Marine and Aquatic School of Technology - Main Campus
+Tagoloan Community College
+University of Science and Technology of Southern Philippines - Cagayan de Oro Campus
+Xavier University - Ateneo de Cagayan
+
+**Davao Region (Region XI)**
+AMA Computer College - Davao City
+Assumption College of Davao
+Ateneo de Davao University
+Brokenshire College of Davao
+Colegio de San Ignacio
+Davao Central College
+Davao Doctors College
+Davao Medical School Foundation
+Davao Oriental State College of Science and Technology
+Davao del Norte State College
+Holy Cross of Davao College
+Jose Maria College
+John Paul II College of Davao
+Malayan Colleges Mindanao
+MATS College of Technology
+Mindanao Kokusai Daigaku
+Mindanao Medical Foundation College
+Philippine Women's College of Davao
+Rizal Memorial Colleges
+San Pedro College of Business Administration
+Southern Philippines Agri-Business and Marine and Aquatic School of Technology - Digos Campus
+St. Mary's College of Baganga
+St. Peter's College of Toril
+St. Therese College of Davao
+University of Mindanao
+University of the Immaculate Conception
+University of Southeastern Philippines
+University of the Philippines Mindanao
+
+**SOCCSKSARGEN (Region XII)**
+AMA Computer College - General Santos
+Alabel National Science High School
+Brokenshire College of Soccsksargen
+Cotabato Medical Foundation College
+Cotabato State University
+Datu Lipus Makapandong National High School
+Gen. Paulino Santos Memorial State University
+Holy Trinity College of General Santos
+Husky Logistics and Technical Institute
+Koronadal Comprehensive National High School
+Mindanao State University - General Santos
+Notre Dame of Marbel University
+Ramon Magsaysay Memorial College
+Southern Christian College
+Southwestern College
+Sultan Kudarat State University
+The Notre Dame Hospital and School of Midwifery
+University of Southern Mindanao
+
+**Caraga (Region XIII)**
+Agusan del Sur State College of Agriculture and Technology
+Agusan del Sur State College of Forestry and Technology
+Butuan Doctors' College
+Caraga State University
+Father Saturnino Urios University
+Fr. William Masterson Technical Foundation College
+Father Saturnino Urios College of Bayugan
+Jabonga Community College
+Northern Mindanao Colleges - Surigao City
+Philippine Normal University - Agusan Campus
+Saint Joseph Institute of Technology - Butuan City
+Saint Michael College of Caraga
+Surigao del Sur State University
+Surigao State College of Technology
+Surigao education Center
+Surigao del Norte State University
+Tandag Technical Institute
+Trento Community College
+
+**Cordillera Administrative Region (CAR)**
+Abra State Institute of Science and Technology
+Apayao State College
+Benguet State University
+Cordillera Career Development College
+Ifugao State University
+Kalinga State University
+Mountain Province State Polytechnic College
+Saint Louis University
+University of Baguio
+University of the Cordilleras
+
+**Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)**
+Basilan State College
+Jamiatu Muslim Mindanao
+Mindanao State University - Maguindanao
+Mindanao State University - Tawi-Tawi College of Technology and Oceanography
+MSU-Iligan Institute of Technology - School of Graduate Studies
+Southern Philippines Agri-Business, Marine and Aquatic School of Technology - Tacurong Campus
+Tawi-Tawi Regional Agricultural College

@@ -222,8 +222,8 @@ Bagasbas
 Bagay
 Bagayan
 Bagnol
-Bagongarao
 Bagong-gahasa
+Bagongarao
 Bagoyo
 Bagsic
 Bagsit
@@ -284,7 +284,6 @@ Baluyot
 Baluyut
 Balweg
 Banaag
-Bañaga
 Banal
 Banaria
 Banasan
@@ -414,7 +413,6 @@ Bolisay
 Boljoon
 Bolongan
 Bolosan
-Boñaga
 Bonalong
 Boncan
 Bondoc
@@ -471,13 +469,10 @@ Bumagat
 Bumanglag
 Bumatay
 Bunac
-Buñagan
-Buñagan
 Bundoc
 Bunga
 Bungcayao
 Bunggay
-Buñi
 Bunsoy
 Buntua
 Buntuyan
@@ -490,10 +485,10 @@ Butalid
 Butic
 Butigan
 Butiu
-Caavay
 Caabay
 Caacbay
 Caasi
+Caavay
 Cabaccan
 Cabacungan
 Cabading
@@ -716,8 +711,8 @@ Cayongcong
 Cayron
 Cayton
 Codog
-Colcol
 Col-long
+Colcol
 Conlu
 Conol
 Conti
@@ -917,6 +912,7 @@ Dulag
 Dulay
 Dulaypan
 Duldulao
+Duma-og
 Dumadag
 Dumag
 Dumagan
@@ -926,7 +922,6 @@ Dumalag
 Dumalog
 Dumalot
 Dumalus
-Duma-og
 Dumapias
 Dumaran
 Dumaslan
@@ -953,10 +948,8 @@ Ea
 Elbo
 Emuslan
 Estigoy
-Faá
 Fangonil
 Fiag-Oy
-Gá
 Gaa
 Gaane
 Gabat
@@ -1046,7 +1039,6 @@ Gunigundo
 Gusilatar
 Gutang
 Gutilban
-Hasigan
 Habalo
 Hadap
 Halili
@@ -1058,6 +1050,7 @@ Hanopol
 Haparam
 Hapayhari
 Harap
+Hasigan
 Hicban
 Hilaga
 Hinagpis
@@ -1100,12 +1093,12 @@ Itchon
 Itliong
 Itum
 Iyog
-Jaenarec
 Jabol
 Jaca
 Jacang
 Jacutan
 Jacutin
+Jaenarec
 Jain
 Jalbuna
 Jalili
@@ -1152,7 +1145,6 @@ Katindig
 Katipunan
 Kayanan
 Killip
-Lagotintin
 Labao
 Labay
 Labayen
@@ -1194,6 +1186,7 @@ Lagman
 Lagmay
 Lago
 Lagos
+Lagotintin
 Laguatan
 Lagunsad
 Lagustan
@@ -1321,7 +1314,6 @@ Luspo
 Luyaben
 Luyun
 Luzon
-Mania
 Maambo
 Maambong
 Maayo
@@ -1537,7 +1529,6 @@ Manacsa
 Managbanag
 Managuelod
 Manahan
-Mañalac
 Manalang
 Manalansan
 Manalastas
@@ -1564,6 +1555,7 @@ Mandap
 Mandilag
 Maneclang
 Manegdeg
+Mang-usans
 Mangabang
 Mangabat
 Mangabay
@@ -1579,10 +1571,10 @@ Manganip
 Manganon
 Mangaoang
 Mangaser
+Mangay-ayam
 Mangaya
 Mangayagam
 Mangayao
-Mangay-ayam
 Mangayo
 Mangibin
 Mangiliman
@@ -1603,7 +1595,7 @@ Manguinao
 Manguingat
 Manguino
 Mangulabnan
-Mang-usans
+Mania
 Maniago
 Manibo
 Manibog
@@ -1636,8 +1628,8 @@ Manubay
 Manuntag
 Manuyong
 Mapanao
-Mapili
 Mapi-ut
+Mapili
 Mappala
 Maquiling
 Maquindang
@@ -1693,7 +1685,6 @@ Munsayac
 Musngi
 Musni
 Muyot
-Naoe
 Nabua
 Nacalaban
 Nacapuy
@@ -1709,6 +1700,7 @@ Namoc
 Namocatcat
 Namocot
 Nanquil
+Naoe
 Napalan
 Napuli
 Narag
@@ -1923,8 +1915,8 @@ Pinlac
 Pinpin
 Pintac
 Pisigan
-Pita
 Pit-Og
+Pita
 Pitpit
 Poblete
 Pogoy
@@ -2202,10 +2194,10 @@ Tablan
 Tablang
 Tablico
 Tablit
+Tabo-tabo
 Tabocol
 Tabogader
 Tabonda
-Tabo-tabo
 Taboyayong
 Tabua
 Tabucbuc
@@ -2278,7 +2270,6 @@ Talusan
 Tamo
 Tamondong
 Tampipi
-Tañag
 Tandang
 Tandoc
 Tanga
@@ -2333,6 +2324,7 @@ Tioaquen
 Tiong
 Tira-tira
 Tiyap
+To-ong
 Togonon
 Toliao
 Tomagan
@@ -2341,7 +2333,6 @@ Tomawis
 Tomines
 Tongol
 Tongpalan
-To-ong
 Tosoc
 Toyhacao
 Tubaon
@@ -2357,6 +2348,7 @@ Tulabing
 Tuliao
 Tulio
 Tulud
+Tuma-ob
 Tumacder
 Tumala
 Tumale
@@ -2366,12 +2358,10 @@ Tumaneng
 Tumang
 Tumangan
 Tumao
-Tuma-ob
 Tumbaga
 Tumibay
 Tumulak
 Tunac
-Tuñacao
 Tungol
 Tungpalan
 Tuparan
