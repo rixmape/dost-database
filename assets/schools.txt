@@ -1,4 +1,4 @@
-**National Capital Region (NCR)**
+# National Capital Region (NCR)
 Adamson University
 Adventist University of the Philippines
 AMA Computer University
@@ -40,20 +40,20 @@ University of Santo Tomas
 University of the East
 University of the Philippines Diliman
 
-**Ilocos Region (Region I)**
+# Ilocos Region (Region I)
 Divine Word College of Laoag
 Don Mariano Marcos Memorial State University
 Mariano Marcos State University
 Northwestern University
 University of Northern Philippines
 
-**Cagayan Valley (Region II)**
+# Cagayan Valley (Region II)
 Cagayan State University
 Isabela State University
 Nueva Vizcaya State University
 University of Saint Louis Tuguegarao
 
-**Central Luzon (Region III)**
+# Central Luzon (Region III)
 Angeles University Foundation
 Araullo University
 Baliuag University
@@ -73,10 +73,9 @@ Philippine Merchant Marine Academy
 Saint Louis College
 Tarlac State University
 University of the Assumption
-University of the Philippines Diliman Extension Program in Pampanga
 Wesleyan University-Philippines
 
-**CALABARZON (Region IV-A)**
+# CALABARZON (Region IV-A)
 Batangas State University
 Cavite State University
 Colegio de San Juan de Letran - Calamba
@@ -92,11 +91,10 @@ University of Perpetual Help System - Biñan Campus
 University of Perpetual Help System - Dalta Campus
 University of Rizal System - Morong Campus
 University of Santo Tomas - Santa Rosa Campus
-University of the Philippines Diliman Extension Program in Santa Rosa
 University of the Philippines Los Baños
 Wesleyan University-Philippines - Cabanatuan City Campus
 
-**MIMAROPA Region**
+# MIMAROPA Region
 Coron Technical and Maritime Academy
 Divine Word College of Calapan
 Holy Trinity University
@@ -114,8 +112,8 @@ Romblon State University
 Southern Luzon State University - Romblon Campus
 Western Philippines University
 
-**Bicol (Region V)**
-Ago Medical and Educational Center - Bicol Christian College of Medicine
+# Bicol (Region V)
+Ago Medical and Educational Center
 Ateneo de Naga University
 Bicol State College of Applied Sciences and Technology
 Bicol University
@@ -123,7 +121,6 @@ Camarines Norte State College
 Camarines Sur Polytechnic Colleges
 Catanduanes State University
 Central Bicol State University of Agriculture
-Dr. Emilio B. Espinosa Sr. Memorial State College of Agriculture and Technology
 Mariners Polytechnic Colleges Foundation - Canaman Campus
 Naga College Foundation
 Partido State University
@@ -131,9 +128,9 @@ Sorsogon State University
 University of Nueva Caceres
 University of Saint Anthony
 University of Santo Tomas - Legazpi Campus
-University of the Philippines Visayas - Miagao Campus Extension in Guinobatan, Albay
+University of the Philippines Visayas - Miagao Campus Extension
 
-**Western Visayas (Region VI)**
+# Western Visayas (Region VI)
 Aklan Catholic College
 Aklan State University
 Capiz State University
@@ -163,7 +160,7 @@ West Visayas State University
 Western Institute of Technology
 Western Visayas College of Science and Technology
 
-**Central Visayas (Region VII)**
+# Central Visayas (Region VII)
 Asian College of Technology International Educational Foundation
 Asian College of Technology
 Badian Island Resort and Spa - International Hospitality School
@@ -197,7 +194,7 @@ University of San Carlos
 University of the Philippines Cebu
 Visayas State University
 
-**Eastern Visayas (Region VIII)**
+# Eastern Visayas (Region VIII)
 Eastern Samar State University
 Eastern Visayas State University - Burauen Campus
 Eastern Visayas State University - Canaman Campus
@@ -224,7 +221,7 @@ Visayas State University - Baybay City Campus
 Visayas State University - Isabel Campus
 Visayas State University - Tolosa Campus
 
-**Zamboanga Peninsula (Region IX)**
+# Zamboanga Peninsula (Region IX)
 Ateneo de Zamboanga University
 Claret College of Isabela
 Immaculate Conception Archdiocesan School
@@ -252,7 +249,7 @@ Western Mindanao State University - Zamboanga City Campus
 Zamboanga City State Polytechnic College
 Zamboanga State College of Marine Sciences and Technology
 
-**Northern Mindanao (Region X)**
+# Northern Mindanao (Region X)
 Bukidnon State University
 Capitol University
 Cagayan de Oro College - Phinma Education Network
@@ -275,12 +272,10 @@ Sacred Heart of Jesus Montessori School
 Saint Francis Xavier College - San Francisco
 Saint Michael College of Caraga
 San Isidro College
-Southern Philippines Agri-Business and Marine and Aquatic School of Technology - Main Campus
 Tagoloan Community College
-University of Science and Technology of Southern Philippines - Cagayan de Oro Campus
 Xavier University - Ateneo de Cagayan
 
-**Davao Region (Region XI)**
+# Davao Region (Region XI)
 AMA Computer College - Davao City
 Assumption College of Davao
 Ateneo de Davao University
@@ -301,7 +296,6 @@ Mindanao Medical Foundation College
 Philippine Women's College of Davao
 Rizal Memorial Colleges
 San Pedro College of Business Administration
-Southern Philippines Agri-Business and Marine and Aquatic School of Technology - Digos Campus
 St. Mary's College of Baganga
 St. Peter's College of Toril
 St. Therese College of Davao
@@ -310,7 +304,7 @@ University of the Immaculate Conception
 University of Southeastern Philippines
 University of the Philippines Mindanao
 
-**SOCCSKSARGEN (Region XII)**
+# SOCCSKSARGEN (Region XII)
 AMA Computer College - General Santos
 Alabel National Science High School
 Brokenshire College of Soccsksargen
@@ -330,7 +324,7 @@ Sultan Kudarat State University
 The Notre Dame Hospital and School of Midwifery
 University of Southern Mindanao
 
-**Caraga (Region XIII)**
+# Caraga (Region XIII)
 Agusan del Sur State College of Agriculture and Technology
 Agusan del Sur State College of Forestry and Technology
 Butuan Doctors' College
@@ -350,7 +344,7 @@ Surigao del Norte State University
 Tandag Technical Institute
 Trento Community College
 
-**Cordillera Administrative Region (CAR)**
+# Cordillera Administrative Region (CAR)
 Abra State Institute of Science and Technology
 Apayao State College
 Benguet State University
@@ -362,11 +356,9 @@ Saint Louis University
 University of Baguio
 University of the Cordilleras
 
-**Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)**
+# Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)
 Basilan State College
 Jamiatu Muslim Mindanao
 Mindanao State University - Maguindanao
-Mindanao State University - Tawi-Tawi College of Technology and Oceanography
 MSU-Iligan Institute of Technology - School of Graduate Studies
-Southern Philippines Agri-Business, Marine and Aquatic School of Technology - Tacurong Campus
 Tawi-Tawi Regional Agricultural College
