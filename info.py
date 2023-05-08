@@ -1,4 +1,4 @@
-import re
+import datetime
 import random
 import pandas as pd
 
@@ -16,7 +16,7 @@ def generate_last_name():
         return random.choice(fhand.readlines()).replace("\n", "").title()
 
 
-def generate_sex_at_birth():
+def generate_sex():
     sexes = ("MALE", "FEMALE")
     return random.choice(sexes)
 
@@ -97,14 +97,6 @@ def generate_year_level():
     return random.randint(1, 4)
 
 
-def generate_scholarship():
-    type = random.choice(("RA2067", "RA7687"))
-    status = random.choice(("ACTIVE", "ON_LEAVE", "TERMINATED"))
-    award_year = random.randint(2019, 2023)
-    end_year = award_year + 4
-    return (type, status, award_year, end_year)
-
-
 def generate_school_name():
     with open("assets/schools.txt", "r", encoding="utf-8") as fhand:
         school_names = [
@@ -120,16 +112,40 @@ def generate_course_name():
         return random.choice(fhand.readlines()).replace("\n", "")
 
 
-# def generate_subjects(course):
-#     """Returns list of tuples containing names of subjects for a particular course and their number of units."""
-#     subjects = []
-#     initial = "".join([word[0] for word in course.split()]).upper()
-#     subject_count = random.randrange(10, 21)
-#     for _ in range(subject_count):
-#         name = f"{initial}{random.randrange(100,300)}"
-#         unit = random.randrange(1, 4)
-#         subjects.append((name, unit))
-#     return subjects
+def generate_subjects(course):
+    """Returns list of tuples containing names of subjects for a particular course and their number of units."""
+    subjects = []
+    initial = "".join([word[0] for word in course.split()]).upper()
+    num_subjects = random.randrange(10, 21)
+    for _ in range(num_subjects):
+        name = f"{initial}{random.randrange(100,300)}"
+        unit = random.randrange(1, 4)
+        subjects.append((name, unit))
+    return subjects
+
+
+def generate_family_annual_income():
+    return random.randint(10000, 500000)
+
+
+def generate_datetime(start_year=2019, end_year=2023):
+    """Returns a datetime whose format is YYYY-MM-DD HH:MI:SS."""
+    start_date = datetime.date(start_year, 1, 1)
+    end_date = datetime.date(end_year, 12, 31)
+
+    delta = end_date - start_date
+    random_days = random.randint(0, delta.days)
+
+    random_time = datetime.time(
+        random.randint(0, 23), random.randint(0, 59), random.randint(0, 59)
+    )
+
+    random_datetime = datetime.datetime.combine(
+        start_date + datetime.timedelta(days=random_days), random_time
+    )
+
+    # Format the datetime as YYYY-MM-DD HH:MI:SS
+    return random_datetime.strftime('%Y-%m-%d %H:%M:%S')
 
 
 if __name__ == "__main__":
@@ -139,7 +155,7 @@ if __name__ == "__main__":
         f"Address: {', '.join(generate_address())}",
         f"Phone number: {generate_phone_number()}",
         f"Email: {generate_email(name)}",
-        f"Scholarship: {generate_scholarship()}",
         f"School: {generate_school_name()}",
+        f"Application submitted on: {generate_datetime()}",
         sep="\n",
     )
