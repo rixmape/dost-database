@@ -16,11 +16,11 @@ if __name__ == "__main__":
     cursor = cnx.cursor(buffered=True)
 
     # Insert records into the database
-    database.insert_dost_admins(cursor)
-    database.insert_scholars(cursor)
+    database.insert_dost_admins(cursor, 20)
+    database.insert_scholars(cursor, 1000)
     database.insert_subjects(cursor)
     database.insert_registrars(cursor)
-    database.insert_applicants(cursor)
+    database.insert_applicants(cursor, 1000)
     database.insert_certificate_of_grades(cursor)
 
     # Ensure data is committed to the database.

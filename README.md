@@ -21,752 +21,180 @@
 4. Run the automation script by executing the command `python main.py`.
 
 
-<!-- ## Sample views -->
+## Sample views
+
+### Female Bicolano scholars taking either BSIT or BSCS
+
+```sql
+CREATE VIEW BicolanoCSITScholars AS
+SELECT scholar_id,
+    CONCAT(last_name, ', ', first_name) AS full_name,
+    sex,
+    year_level
+FROM scholar
+    JOIN (address, course) ON (
+        scholar.home_address_id = address.address_id
+        AND scholar.course_id = course.course_id
+    )
+WHERE (
+        address.region = 'Region V (Bicol Region)'
+        AND (
+            course.name = 'BS Information Technology'
+            OR course.name = 'BS Computer Science'
+        )
+    );
+
+```
+
+| scholar_id | full_name                   | sex    | year_level |
+|------------|-----------------------------|--------|------------|
+| 1259       | "Makinano, Cecilia"         | FEMALE | 4          |
+| 859        | "Calica, Luz"               | FEMALE | 1          |
+| 955        | "Mabutas, Joan Perceval"    | FEMALE | 4          |
 
 
-## Entity-relationship diagram
+## CS105 Project Requirements
+
+### Entity-relationship diagram
 
 ![entity_relationship_diagram](assets/erd.png)
 
 
-<!-- ## Relational model -->
+### Relational model
+![](https://peacemakersnetwork.org/wp-content/uploads/2019/09/placeholder.jpg)
+
+### Data dictionaries
+
+#### Table: `applicant`
+
+| Name                 | Data Type              | Not Null | PK  | FK  | Default |
+| -------------------- | ---------------------- | -------- | --- | --- | ------- |
+| applicant_id         | INT                    | Yes      | Yes | No  |         |
+| application_id       | INT                    | Yes      | No  | Yes |         |
+| home_address_id      | INT                    | Yes      | No  | Yes |         |
+| first_name           | VARCHAR(45)            | Yes      | No  | No  |         |
+| middle_name          | VARCHAR(45)            | No       | No  | No  | NULL    |
+| last_name            | VARCHAR(45)            | Yes      | No  | No  |         |
+| sex                  | ENUM('MALE', 'FEMALE') | No       | No  | No  | NULL    |
+| email                | VARCHAR(45)            | Yes      | No  | No  |         |
+| phone                | VARCHAR(11)            | Yes      | No  | No  |         |
+| family_annual_income | INT                    | Yes      | No  | No  |         |
+
+#### Table: `application`
+
+| Name           | Data Type                             | Not Null | PK  | FK  | Default |
+| -------------- | ------------------------------------- | -------- | --- | --- | ------- |
+| application_id | INT                                   | Yes      | Yes | No  |
+| admin_id       | INT                                   | Yes      | No  | Yes |
+| submitted      | DATETIME                              | Yes      | No  | No  |
+| type           | ENUM('RA2067', 'RA7687')              | Yes      | No  | No  |
+| status         | ENUM('PENDING', 'APPROVED', 'DENIED') | Yes      | No  | No  |
+
+#### Table: `registrar`
+
+| Name         | Data Type   | Not Null | PK  | FK  | Default |
+| ------------ | ----------- | -------- | --- | --- | ------- |
+| registrar_id | INT         | Yes      | Yes | No  |
+| school_id    | INT         | Yes      | No  | Yes |
+| first_name   | VARCHAR(45) | Yes      | No  | No  |
+| middle_name  | VARCHAR(45) | No       | No  | No  | NULL    |
+| last_name    | VARCHAR(45) | Yes      | No  | No  |
+| email        | VARCHAR(45) | Yes      | No  | No  |
+| phone        | VARCHAR(11) | Yes      | No  | No  |
+
+#### Table: `certificate_of_grade`
+
+| Name            | Data Type | Not Null | PK  | FK  | Default |
+| --------------- | --------- | -------- | --- | --- | ------- |
+| certificate_id' | INT       | Yes      | Yes | No  |
+| scholar_id      | INT       | Yes      | No  | Yes |
+| registrar_id    | INT       | Yes      | No  | Yes |
+| admin_id        | INT       | Yes      | No  | Yes |
+| year            | YEAR      | Yes      | No  | No  |
+| semester        | TINYINT   | Yes      | No  | No  |
+| submitted       | DATETIME  | Yes      | No  | No  |
+
+#### Table: `dost_admin`
+
+| Name        | Data Type   | Not Null | PK  | FK  | Default |
+| ----------- | ----------- | -------- | --- | --- | ------- |
+| admin_id    | INT         | Yes      | Yes | No  |
+| first_name  | VARCHAR(45) | Yes      | No  | No  |
+| middle_name | VARCHAR(45) | No       | No  | No  | NULL    |
+| last_name   | VARCHAR(45) | Yes      | No  | No  |
+| email       | VARCHAR(45) | Yes      | No  | No  |
+| phone       | VARCHAR(11) | Yes      | No  | No  |
 
 
-## Data dictionary
+#### Table: `scholarship`
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: applicant</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>applicant_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>application_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>home_address_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>first_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>middle_name</td>
-      <td>VARCHAR(45)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>last_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>sex</td>
-      <td>ENUM('MALE', 'FEMALE')</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>email</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>phone</td>
-      <td>VARCHAR(11)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>family_annual_income</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+| Name           | Data Type                                | Not Null | PK  | FK  | Default  |
+| -------------- | ---------------------------------------- | -------- | --- | --- | -------- |
+| scholarship_id | INT                                      | Yes      | Yes | No  |
+| type           | ENUM('RA2067', 'RA7687')                 | Yes      | No  | No  |
+| status         | ENUM('ACTIVE', 'ON_LEAVE', 'TERMINATED') | Yes      | No  | No  | 'ACTIVE' |
+| award_year     | YEAR                                     | Yes      | No  | No  |
+| end_year       | YEAR                                     | Yes      | No  | No  |
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: application</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>application_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>admin_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>submitted</td>
-      <td>DATETIME</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>type</td>
-      <td>ENUM('RA2067', 'RA7687')</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>ENUM('PENDING', 'APPROVED', 'DENIED')</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+#### Table: `scholar`
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: registrar</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>registrar_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>school_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>first_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>middle_name</td>
-      <td>VARCHAR(45)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>last_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>email</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>phone</td>
-      <td>VARCHAR(11)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+| Name            | Data Type              | Not Null | PK  | FK  | Default |
+|-----------------|------------------------|----------|-----|-----|---------|
+| scholar_id      | INT                    | Yes      | Yes | No  |
+| scholarship_id  | INT                    | Yes      | No  | Yes |
+| school_id       | INT                    | Yes      | No  | Yes |
+| course_id       | INT                    | Yes      | No  | Yes |
+| home_address_id | INT                    | Yes      | No  | Yes |
+| first_name      | VARCHAR(45)            | Yes      | No  | No  |
+| middle_name     | VARCHAR(45)            | No       | No  | No  | NULL    |
+| last_name       | VARCHAR(45)            | Yes      | No  | No  |
+| sex             | ENUM('MALE', 'FEMALE') | No       | No  | No  | NULL    |
+| email           | VARCHAR(45)            | Yes      | No  | No  |
+| phone           | VARCHAR(11)            | Yes      | No  | No  |
+| year_level      | TINYINT                | Yes      | No  | No  |
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: certificate_of_grade</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>certificate_id'</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>scholar_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>registrar_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>admin_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>year</td>
-      <td>YEAR</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>semester</td>
-      <td>TINYINT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>submitted</td>
-      <td>DATETIME</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+#### Table: `school`
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: dost_admin</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>admin_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>first_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>middle_name</td>
-      <td>VARCHAR(45)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>last_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>email</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>phone</td>
-      <td>VARCHAR(11)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+| Name              | Data Type                 | Not Null | PK  | FK  | Default |
+|-------------------|---------------------------|----------|-----|-----|---------|
+| school_id         | INT                       | Yes      | Yes | No  |
+| office_address_id | INT                       | No       | No  | Yes | NULL    |
+| name              | VARCHAR(256)              | Yes      | No  | No  |
+| phone             | VARCHAR(11)               | Yes      | No  | No  |
+| email             | VARCHAR(45)               | Yes      | No  | No  |
+| type              | ENUM('PUBLIC', 'PRIVATE') | Yes      | No  | No  |
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: scholarship</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>scholarship_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>type</td>
-      <td>ENUM('RA2067', 'RA7687')</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>ENUM('ACTIVE', 'ON_LEAVE', 'TERMINATED')</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td>'ACTIVE'</td>
-   </tr>
-   <tr>
-      <td>award_year</td>
-      <td>YEAR</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>end_year</td>
-      <td>YEAR</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+#### Table: `course`
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: scholar</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>scholar_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>scholarship_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>school_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>course_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>home_address_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>first_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>middle_name</td>
-      <td>VARCHAR(45)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>last_name</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>sex</td>
-      <td>ENUM('MALE', 'FEMALE')</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>email</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>phone</td>
-      <td>VARCHAR(11)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>year_level</td>
-      <td>TINYINT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+| Name        | Data Type    | Not Null | PK  | FK | Default |
+|-------------|--------------|----------|-----|----|---------|
+| course_id   | INT          | Yes      | Yes | No |
+| name        | VARCHAR(255) | Yes      | No  | No |
+| description | TINYTEXT     | No       | No  | No | NULL    |
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: school</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>school_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>office_address_id</td>
-      <td>INT</td>
-      <td>No</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>phone</td>
-      <td>VARCHAR(11)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>email</td>
-      <td>VARCHAR(45)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>type</td>
-      <td>ENUM('PUBLIC', 'PRIVATE')</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: course</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>course_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>VARCHAR(255)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>TINYTEXT</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-</table>
-</br>
+#### Table: `subject`
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: subject</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>subject_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>course_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>name</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>unit</td>
-      <td>TINYINT</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>TINYTEXT</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-</table>
-</br>
+| Name        | Data Type    | Not Null | PK  | FK  | Default |
+|-------------|--------------|----------|-----|-----|---------|
+| subject_id  | INT          | Yes      | Yes | No  |
+| course_id   | INT          | Yes      | No  | Yes |
+| name        | VARCHAR(256) | Yes      | No  | No  |
+| unit        | TINYINT      | Yes      | No  | No  |
+| description | TINYTEXT     | No       | No  | No  | NULL    |
 
-<table style="width:100%">
-   <caption style="font-size: 1.25em; font-weight: 500">Table: address</caption>
-   <tr>
-      <th>Name</th>
-      <th>Data Type</th>
-      <th>Not Null</th>
-      <th>PK</th>
-      <th>FK</th>
-      <th>Default</th>
-   </tr>
-   <tr>
-      <td>address_id</td>
-      <td>INT</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>purok</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>street</td>
-      <td>VARCHAR(256)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>barangay</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>city</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>zipcode</td>
-      <td>VARCHAR(256)</td>
-      <td>No</td>
-      <td>No</td>
-      <td>No</td>
-      <td>NULL</td>
-   </tr>
-   <tr>
-      <td>province</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>region</td>
-      <td>VARCHAR(256)</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-   </tr>
-</table>
-</br>
+#### Table: `address`
 
-<!-- ## Normalization -->
+| Name       | Data Type    | Not Null | PK  | FK | Default |
+|------------|--------------|----------|-----|----|---------|
+| address_id | INT          | Yes      | Yes | No |
+| purok      | VARCHAR(256) | Yes      | No  | No |
+| street     | VARCHAR(256) | No       | No  | No | NULL    |
+| barangay   | VARCHAR(256) | Yes      | No  | No |
+| city       | VARCHAR(256) | Yes      | No  | No |
+| zipcode    | VARCHAR(256) | No       | No  | No | NULL    |
+| province   | VARCHAR(256) | Yes      | No  | No |
+| region     | VARCHAR(256) | Yes      | No  | No |
+
+### Normalization
+aaa
