@@ -2,6 +2,7 @@ import random
 import info
 import scholarship
 import application
+import college
 
 
 def insert_dost_admins(cursor, num_admins=10):
@@ -22,7 +23,8 @@ def insert_dost_admins(cursor, num_admins=10):
 
 def insert_scholarship(cursor):
     cursor.execute(
-        "INSERT INTO scholarship (type, status, award_year) VALUES (%s, %s, %s)",
+        "INSERT INTO scholarship (type, status, award_year)"
+        "VALUES (%s, %s, %s)",
         (
             scholarship.generate_type(),
             scholarship.generate_status(),
@@ -34,10 +36,9 @@ def insert_scholarship(cursor):
 
 def insert_school(cursor):
     """Insert an entry in table `school`."""
-    name = info.generate_school_name()
+    name = college.generate_school_name()
 
-    query = "SELECT name FROM school"
-    cursor.execute(query)
+    cursor.execute("SELECT name FROM school")
     names = [record[0] for record in cursor.fetchall()]
 
     if name in names:
@@ -45,11 +46,13 @@ def insert_school(cursor):
         return cursor.fetchone()[0]
     else:
         cursor.execute(
-            "INSERT INTO school (name, phone, email)" "VALUES (%s, %s, %s)",
+            "INSERT INTO school (name, phone, email, type)"
+            "VALUES (%s, %s, %s, %s)",
             (
                 name,
                 info.generate_phone_number(),
                 info.generate_email(name),
+                college.generate_school_type(),
             ),
         )
         return cursor.lastrowid
@@ -57,10 +60,9 @@ def insert_school(cursor):
 
 def insert_course(cursor):
     """Insert an entry in table `course`."""
-    name = info.generate_course_name()
+    name = college.generate_course_name()
 
-    query = "SELECT name FROM course"
-    cursor.execute(query)
+    cursor.execute("SELECT name FROM course")
     names = [record[0] for record in cursor.fetchall()]
 
     if name in names:
@@ -74,11 +76,11 @@ def insert_course(cursor):
 
 
 def insert_address(cursor):
-    query = (
+    cursor.execute(
         "INSERT INTO address (purok, barangay, city, zipcode, province, region)"
-        "VALUES (%s, %s, %s, %s, %s, %s)"
+        "VALUES (%s, %s, %s, %s, %s, %s)",
+        info.generate_address(),
     )
-    cursor.execute(query, info.generate_address())
     return cursor.lastrowid
 
 
@@ -110,16 +112,18 @@ def insert_scholars(cursor, num_scholars=100):
 
 def insert_subjects(cursor):
     """Inserts entries in table `subject`."""
-    insert_subject = (
-        "INSERT INTO subject (course_id, name, unit) VALUES (%s, %s, %s)"
-    )
-
-    query = "SELECT course_id, name FROM course"
-    cursor.execute(query)
+    cursor.execute("SELECT course_id, name FROM course")
 
     for course_id, course_name in cursor.fetchall():
-        for subject, unit in info.generate_subjects(course_name):
-            cursor.execute(insert_subject, (course_id, subject, unit))
+        num_subjects = random.randint(0, 20)
+        for _ in range(num_subjects):
+            subject_name = college.generate_subject_name(course_name)
+            subject_unit = college.generate_subject_unit()
+            cursor.execute(
+                "INSERT INTO subject (course_id, name, unit)"
+                "VALUES (%s, %s, %s)",
+                (course_id, subject_name, subject_unit),
+            )
 
 
 def insert_registrars(cursor):
@@ -130,16 +134,12 @@ def insert_registrars(cursor):
     for school_id in school_ids:
         first_name = info.generate_first_name()
         last_name = info.generate_last_name()
+        email = info.generate_email(" ".join((first_name, last_name)))
+        phone_number = info.generate_phone_number()
         cursor.execute(
             "INSERT INTO registrar (school_id, first_name, last_name, email,"
             "phone) VALUES (%s, %s, %s, %s, %s)",
-            (
-                school_id,
-                first_name,
-                last_name,
-                info.generate_email(" ".join((first_name, last_name))),
-                info.generate_phone_number(),
-            ),
+            (school_id, first_name, last_name, email, phone_number),
         )
 
 

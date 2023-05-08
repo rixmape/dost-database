@@ -4,16 +4,15 @@ import pandas as pd
 
 
 def generate_first_name():
-    num_words = random.randint(1, 2)
-    with open("assets/firstnames.txt", "r") as fhand:
-        lines = random.sample(fhand.readlines(), num_words)
-        first_name = " ".join([line.replace("\n", "") for line in lines])
-        return first_name
+    with open("assets/firstnames.txt", "r", encoding="utf-8") as fhand:
+        names = fhand.read().splitlines()
+    return " ".join(random.sample(names, random.randint(1, 2)))
 
 
 def generate_last_name():
     with open("assets/lastnames.txt", "r") as fhand:
-        return random.choice(fhand.readlines()).replace("\n", "").title()
+        names = fhand.read().splitlines()
+    return random.choice(names)
 
 
 def generate_sex():
@@ -22,7 +21,7 @@ def generate_sex():
 
 
 def generate_address():
-    """Returns a tuple containing the following address information in order:
+    """Returns a tuple containing  address information in order:
     purok, barangay, municipality/city, zipcode, province, and region.
     """
     df = pd.read_csv("assets/geodata.csv")
@@ -97,33 +96,6 @@ def generate_year_level():
     return random.randint(1, 4)
 
 
-def generate_school_name():
-    with open("assets/schools.txt", "r", encoding="utf-8") as fhand:
-        school_names = [
-            school_name.replace("\n", "").title()
-            for school_name in fhand.readlines()
-            if school_name[0] != "#" and school_name != "\n"
-        ]
-        return random.choice(school_names)
-
-
-def generate_course_name():
-    with open("assets/courses.txt", "r") as fhand:
-        return random.choice(fhand.readlines()).replace("\n", "")
-
-
-def generate_subjects(course):
-    """Returns list of tuples containing names of subjects for a particular course and their number of units."""
-    subjects = []
-    initial = "".join([word[0] for word in course.split()]).upper()
-    num_subjects = random.randrange(10, 21)
-    for _ in range(num_subjects):
-        name = f"{initial}{random.randrange(100,300)}"
-        unit = random.randrange(1, 4)
-        subjects.append((name, unit))
-    return subjects
-
-
 def generate_family_annual_income():
     return random.randint(10000, 500000)
 
@@ -135,14 +107,14 @@ def generate_datetime(start_year=2019, end_year=2023):
 
     delta = end_date - start_date
     random_days = random.randint(0, delta.days)
+    random_date = start_date + datetime.timedelta(days=random_days)
 
-    random_time = datetime.time(
-        random.randint(0, 23), random.randint(0, 59), random.randint(0, 59)
-    )
+    hour = random.randint(0, 23)
+    minute = random.randint(0, 59)
+    second = random.randint(0, 59)
+    random_time = datetime.time(hour, minute, second)
 
-    random_datetime = datetime.datetime.combine(
-        start_date + datetime.timedelta(days=random_days), random_time
-    )
+    random_datetime = datetime.datetime.combine(random_date, random_time)
 
     # Format the datetime as YYYY-MM-DD HH:MI:SS
     return random_datetime.strftime('%Y-%m-%d %H:%M:%S')
@@ -155,7 +127,6 @@ if __name__ == "__main__":
         f"Address: {', '.join(generate_address())}",
         f"Phone number: {generate_phone_number()}",
         f"Email: {generate_email(name)}",
-        f"School: {generate_school_name()}",
         f"Application submitted on: {generate_datetime()}",
         sep="\n",
     )
