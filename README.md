@@ -3,22 +3,34 @@
 
 ## Setup Guide
 
-### How to make the database available in my machine?
+### How to deploy the database in my machine?
 
-1. Download the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/). An installation guide is available [here](https://www.youtube.com/watch?v=u96rVINbAUI).
-2. Open MySQL Workbench and connect to your default MySQL server from the home screen.
-3. Open the project SQL script by clicking `File` > `Open SQL Script` in the top toolbar.
-   - You may also use the keyboard shortcut `Ctrl`+`Shift`+`O`.
-4. Navigate to the project folder and select `dost.sql`.
+1. Download and install the [MySQL Community Server](https://dev.mysql.com/downloads/mysql/).
+2. Open MySQL Workbench then click `Database` > `Connect to Database`. </br>
+   Assuming you chose default settings during installation, choose `OK` in the popup window.
+   - Keyboard shortcut: `Ctrl`+`U`
+3. Click `File` > `Open SQL Script` in the top toolbar.
+   - Keyboard shortcut `Ctrl`+`Shift`+`O`
+4. Select `dost.sql` inside this project folder.
 5. Execute the script by clicking `Query` > `Execute (All or Selection)` in the top toolbar.
-   - You may also use the keyboard shortcut `Ctrl`+`Shift`+`Enter`.
+   - Keyboard shortcut `Ctrl`+`Shift`+`Enter`
+6. The `dost` schema is now live on your MySQL server.
 
-### How to automatically populate records into the database?
+### How to populate the database?
 
-1. [Python](https://www.python.org/downloads/) must be available on your computer.
-2. Install [`mysql-connector-python`](https://pypi.org/project/mysql-connector-python/) as a Python package by running the command `pip install mysql-connector-python`.
-3. Navigate to the project folder.
-4. Run the automation script by executing the command `python main.py`.
+#### Method 1: Import database backup
+
+1. Open MySQL Workbench.
+2. Click `Server` > `Data Import` in the top toolbar.
+3. Select this project's `\dost_dump` folder in `Import from Dump Project Folder`.
+4. Click `Start Import` at the bottom of the current tab.
+
+#### Method 2: Automatic data generation
+
+1. Download and install [Python](https://www.python.org/downloads/).
+2. Navigate to this project folder.
+3. In your terminal, execute `pip install -r requirements.txt.` to install dependencies.
+4. Run the automation script by executing `python main.py`.
 
 
 ## Selected views
