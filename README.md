@@ -21,36 +21,42 @@
 4. Run the automation script by executing the command `python main.py`.
 
 
-## Sample views
+## Selected views
 
 ### Female Bicolano scholars taking either BSIT or BSCS
 
 ```sql
-CREATE VIEW BicolanoCSITScholars AS
-SELECT scholar_id,
-    CONCAT(last_name, ', ', first_name) AS full_name,
-    sex,
-    year_level
+CREATE VIEW FemaleBicolanoCSITScholars AS
+SELECT scholar.scholar_id,
+    CONCAT(scholar.last_name, ', ', scholar.first_name) AS full_name,
+    scholar.sex,
+    scholar.year_level,
+    school.name AS school_name
 FROM scholar
-    JOIN (address, course) ON (
+    JOIN (address, course, school) ON (
         scholar.home_address_id = address.address_id
         AND scholar.course_id = course.course_id
+        AND scholar.school_id = school.school_id
     )
 WHERE (
         address.region = 'Region V (Bicol Region)'
+        AND scholar.sex = 'FEMALE'
         AND (
             course.name = 'BS Information Technology'
             OR course.name = 'BS Computer Science'
         )
     );
-
 ```
 
-| scholar_id | full_name                   | sex    | year_level |
-|------------|-----------------------------|--------|------------|
-| 1259       | "Makinano, Cecilia"         | FEMALE | 4          |
-| 859        | "Calica, Luz"               | FEMALE | 1          |
-| 955        | "Mabutas, Joan Perceval"    | FEMALE | 4          |
+| scholar_id | full_name                   | sex    | year_level | school_name                        |
+| ---------- | --------------------------- | ------ | ---------- | ---------------------------------- |
+| 276        | "Macalipat, Rudolph Cherry" | FEMALE | 4          | "Cagayan State University"         |
+| 399        | "Lalamunan, Juanito Rhea"   | FEMALE | 2          | "Western Institute Of Technology"  |
+| 523        | "Bangwa, Leonor Gideon"     | FEMALE | 2          | "Lourdes College - Cagayan De Oro" |
+| ...        | ...                         | ...    | ...        | ...                                |
+| 1201       | "Kabahit, Ruperto"          | FEMALE | 1          | "Silliman University"              |
+| 4961       | "Madlangawa, Shirley"       | FEMALE | 3          | "Silliman University"              |
+| 8125       | "Dimaaliw, Clara Camille"   | FEMALE | 1          | "Ateneo De Zamboanga University"   |
 
 
 ## CS105 Project Requirements
@@ -139,7 +145,7 @@ WHERE (
 #### Table: `scholar`
 
 | Name            | Data Type              | Not Null | PK  | FK  | Default |
-|-----------------|------------------------|----------|-----|-----|---------|
+| --------------- | ---------------------- | -------- | --- | --- | ------- |
 | scholar_id      | INT                    | Yes      | Yes | No  |
 | scholarship_id  | INT                    | Yes      | No  | Yes |
 | school_id       | INT                    | Yes      | No  | Yes |
@@ -156,7 +162,7 @@ WHERE (
 #### Table: `school`
 
 | Name              | Data Type                 | Not Null | PK  | FK  | Default |
-|-------------------|---------------------------|----------|-----|-----|---------|
+| ----------------- | ------------------------- | -------- | --- | --- | ------- |
 | school_id         | INT                       | Yes      | Yes | No  |
 | office_address_id | INT                       | No       | No  | Yes | NULL    |
 | name              | VARCHAR(256)              | Yes      | No  | No  |
@@ -166,17 +172,17 @@ WHERE (
 
 #### Table: `course`
 
-| Name        | Data Type    | Not Null | PK  | FK | Default |
-|-------------|--------------|----------|-----|----|---------|
-| course_id   | INT          | Yes      | Yes | No |
-| name        | VARCHAR(255) | Yes      | No  | No |
-| description | TINYTEXT     | No       | No  | No | NULL    |
+| Name        | Data Type    | Not Null | PK  | FK  | Default |
+| ----------- | ------------ | -------- | --- | --- | ------- |
+| course_id   | INT          | Yes      | Yes | No  |
+| name        | VARCHAR(255) | Yes      | No  | No  |
+| description | TINYTEXT     | No       | No  | No  | NULL    |
 
 
 #### Table: `subject`
 
 | Name        | Data Type    | Not Null | PK  | FK  | Default |
-|-------------|--------------|----------|-----|-----|---------|
+| ----------- | ------------ | -------- | --- | --- | ------- |
 | subject_id  | INT          | Yes      | Yes | No  |
 | course_id   | INT          | Yes      | No  | Yes |
 | name        | VARCHAR(256) | Yes      | No  | No  |
@@ -185,16 +191,16 @@ WHERE (
 
 #### Table: `address`
 
-| Name       | Data Type    | Not Null | PK  | FK | Default |
-|------------|--------------|----------|-----|----|---------|
-| address_id | INT          | Yes      | Yes | No |
-| purok      | VARCHAR(256) | Yes      | No  | No |
-| street     | VARCHAR(256) | No       | No  | No | NULL    |
-| barangay   | VARCHAR(256) | Yes      | No  | No |
-| city       | VARCHAR(256) | Yes      | No  | No |
-| zipcode    | VARCHAR(256) | No       | No  | No | NULL    |
-| province   | VARCHAR(256) | Yes      | No  | No |
-| region     | VARCHAR(256) | Yes      | No  | No |
+| Name       | Data Type    | Not Null | PK  | FK  | Default |
+| ---------- | ------------ | -------- | --- | --- | ------- |
+| address_id | INT          | Yes      | Yes | No  |
+| purok      | VARCHAR(256) | Yes      | No  | No  |
+| street     | VARCHAR(256) | No       | No  | No  | NULL    |
+| barangay   | VARCHAR(256) | Yes      | No  | No  |
+| city       | VARCHAR(256) | Yes      | No  | No  |
+| zipcode    | VARCHAR(256) | No       | No  | No  | NULL    |
+| province   | VARCHAR(256) | Yes      | No  | No  |
+| region     | VARCHAR(256) | Yes      | No  | No  |
 
 ### Normalization
 aaa

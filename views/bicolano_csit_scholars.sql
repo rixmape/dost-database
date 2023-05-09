@@ -1,14 +1,16 @@
 USE dost;
-DROP VIEW IF EXISTS BicolanoCSITScholars;
-CREATE VIEW BicolanoCSITScholars AS
-SELECT scholar_id,
-    CONCAT(last_name, ', ', first_name) AS full_name,
-    sex,
-    year_level
+DROP VIEW IF EXISTS FemaleBicolanoCSITScholars;
+CREATE VIEW FemaleBicolanoCSITScholars AS
+SELECT scholar.scholar_id,
+    CONCAT(scholar.last_name, ', ', scholar.first_name) AS full_name,
+    scholar.sex,
+    scholar.year_level,
+    school.name
 FROM scholar
-    JOIN (address, course) ON (
+    JOIN (address, course, school) ON (
         scholar.home_address_id = address.address_id
         AND scholar.course_id = course.course_id
+        AND scholar.school_id = school.school_id
     )
 WHERE (
         address.region = 'Region V (Bicol Region)'
@@ -19,4 +21,4 @@ WHERE (
         )
     );
 SELECT *
-FROM BicolanoCSITScholars;
+FROM FemaleBicolanoCSITScholars;
