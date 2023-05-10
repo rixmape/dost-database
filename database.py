@@ -9,6 +9,14 @@ def get_col_records(cursor, col, table):
     cursor.execute(f"SELECT {col} FROM {table}")
     return [record[0] for record in cursor.fetchall()]
 
+def insert_address(cursor):
+    cursor.execute(
+        "INSERT INTO address (purok, barangay, city, zipcode, province, region)"
+        "VALUES (%s, %s, %s, %s, %s, %s)",
+        info.generate_address(),
+    )
+    return cursor.lastrowid
+
 
 def insert_dost_admins(cursor, num_admins=10):
     for _ in range(num_admins):
@@ -48,9 +56,10 @@ def insert_school(cursor):
         return cursor.fetchone()[0]
     else:
         cursor.execute(
-            "INSERT INTO school (name, phone, email, type)"
-            "VALUES (%s, %s, %s, %s)",
+            "INSERT INTO school (office_address_id, name, phone, email, type)"
+            "VALUES (%s, %s, %s, %s, %s)",
             (
+                insert_address(cursor),
                 name,
                 info.generate_phone_number(),
                 info.generate_email(name),
@@ -88,15 +97,6 @@ def insert_course(cursor):
         course_id = cursor.lastrowid
 
     return course_id
-
-
-def insert_address(cursor):
-    cursor.execute(
-        "INSERT INTO address (purok, barangay, city, zipcode, province, region)"
-        "VALUES (%s, %s, %s, %s, %s, %s)",
-        info.generate_address(),
-    )
-    return cursor.lastrowid
 
 
 def insert_scholars(cursor, num_scholars=100):
@@ -181,9 +181,11 @@ def insert_applicants(cursor, num_applicants=100):
 
 
 def insert_certificate_of_grades(cursor):
-    cursor.execute("SELECT scholar_id, school_id, scholarship_id FROM scholar")
+    cursor.execute(
+        "SELECT scholar_id, school_id, scholarship_id, year_level FROM scholar"
+    )
 
-    for scholar_id, school_id, scholarship_id in cursor.fetchall():
+    for scholar_id, school_id, scholarship_id, year_level in cursor.fetchall():
         cursor.execute(
             "SELECT registrar_id FROM registrar WHERE school_id=%s",
             (school_id,),
@@ -197,9 +199,9 @@ def insert_certificate_of_grades(cursor):
             "SELECT award_year FROM scholarship WHERE scholarship_id=%s",
             (scholarship_id,),
         )
-        year = cursor.fetchone()[0]
+        year_submitted = cursor.fetchone()[0]
 
-        for _ in range(random.randint(0, 4)):
+        for _ in range(random.randint(1, year_level)):
             for semester in range(1, 3):
                 cursor.execute(
                     "INSERT INTO certificate_of_grade (scholar_id, registrar_id,"
@@ -209,9 +211,9 @@ def insert_certificate_of_grades(cursor):
                         scholar_id,
                         registrar_id,
                         admin_id,
-                        year,
+                        year_submitted,
                         semester,
-                        info.generate_datetime(start_year=year, end_year=year),
+                        info.generate_datetime(start_year=year_submitted, end_year=year_submitted),
                     ),
                 )
-            year += 1
+            year_submitted += 1

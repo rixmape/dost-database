@@ -20,7 +20,7 @@ if __name__ == "__main__":
     database.insert_scholars(cursor, 10000)
     database.insert_subjects(cursor, 30)
     database.insert_registrars(cursor)
-    database.insert_applicants(cursor, 5000)
+    database.insert_applicants(cursor, 10000)
     database.insert_certificate_of_grades(cursor)
 
     # Ensure data is committed to the database.

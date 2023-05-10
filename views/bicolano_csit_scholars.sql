@@ -5,7 +5,7 @@ SELECT scholar.scholar_id,
     CONCAT(scholar.last_name, ', ', scholar.first_name) AS full_name,
     scholar.sex,
     scholar.year_level,
-    school.name
+    school.name AS school_name
 FROM scholar
     JOIN (address, course, school) ON (
         scholar.home_address_id = address.address_id

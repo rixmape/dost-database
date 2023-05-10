@@ -60,15 +60,41 @@ WHERE (
     );
 ```
 
-| scholar_id | full_name                   | sex    | year_level | school_name                        |
-| ---------- | --------------------------- | ------ | ---------- | ---------------------------------- |
-| 276        | "Macalipat, Rudolph Cherry" | FEMALE | 4          | "Cagayan State University"         |
-| 399        | "Lalamunan, Juanito Rhea"   | FEMALE | 2          | "Western Institute Of Technology"  |
-| 523        | "Bangwa, Leonor Gideon"     | FEMALE | 2          | "Lourdes College - Cagayan De Oro" |
-| ...        | ...                         | ...    | ...        | ...                                |
-| 1201       | "Kabahit, Ruperto"          | FEMALE | 1          | "Silliman University"              |
-| 4961       | "Madlangawa, Shirley"       | FEMALE | 3          | "Silliman University"              |
-| 8125       | "Dimaaliw, Clara Camille"   | FEMALE | 1          | "Ateneo De Zamboanga University"   |
+| scholar_id | full_name                   | sex    | year_level | school_name                                               |
+| ---------- | --------------------------- | ------ | ---------- | --------------------------------------------------------- |
+| 772        | "Labay, Aurelia Raphaela"   | FEMALE | 1          | "Camarines Sur Polytechnic Colleges"                      |
+| 1065       | "Basubas, Vicky Elsa"       | FEMALE | 2          | "Mats College Of Technology"                              |
+| 1583       | "Magsombol, Nash Dominador" | FEMALE | 3          | "Eastern Samar State University"                          |
+| ...        | ...                         | ...    | ...        | ...                                                       |
+| 8095       | "Cacab, Maynard"            | FEMALE | 3          | "San Beda University"                                     |
+| 8706       | "Dornogan, Yolly Esteban"   | FEMALE | 2          | "Cebu Institute Of Technology - University"               |
+| 9822       | "Dungo, Victoriano"         | FEMALE | 1          | "Northern Negros State College Of Science And Technology" |
+
+
+### Number of missing certificate of grades by scholar
+
+```sql
+CREATE VIEW ScholarMissingCOG AS
+SELECT s.scholar_id,
+    CONCAT(s.last_name, ', ', s.first_name) AS scholar_full_name,
+    s.email,
+    s.year_level,
+    year_level - (COUNT(*) DIV 2) AS missing_cog_count
+FROM scholar AS s
+    INNER JOIN certificate_of_grade AS cog ON s.scholar_id = cog.scholar_id
+GROUP BY s.scholar_id
+HAVING missing_cog_count > 0;
+```
+
+| scholar_id | scholar_full_name             | email             | year_level | missing_cog_count |
+| ---------- | ----------------------------- | ----------------- | ---------- | ----------------- |
+| 1          | "Labis, InesA"                | il8237@gmail.com  | 4          | 3                 |
+| 5          | "Malabed, Sancho Kael"        | skm1926@gmail.com | 3          | 2                 |
+| 6          | "Tabalanza, Jovita"           | jt8342@gmail.com  | 4          | 3                 |
+| ...        | ...                           | ...               | ...        | ...               |
+| 2125       | "Agati, Dennis"               | da5746@gmail.com  | 4          | 1                 |
+| 2132       | "Sawi, Roger Gregory"         | rgs9713@gmail.com | 4          | 3                 |
+| 2133       | "Panaguinto, Veronica Nieves" | vnp2850@gmail.com | 3          | 1                 |
 
 
 ## CS105 Project Requirements
