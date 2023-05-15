@@ -100,11 +100,6 @@ HAVING missing_cog_count > 0;
 ## CS105 Project Requirements
 
 ### Entity-relationship diagram
-
 ![entity_relationship_diagram](/cs105reqs/entity_relationship_diagram.png)
 
-
-### Relational model
-![](https://peacemakersnetwork.org/wp-content/uploads/2019/09/placeholder.jpg)
-
-**Note:** See `\cs105reqs` subfolder for the normalization and [data dictionaries](/cs105reqs/data_dictionary.pdf).
+**Note:** See `\cs105reqs` subfolder for the [relational model](/cs105reqs/relational_model.png), normalization and [data dictionaries](/cs105reqs/data_dictionary.pdf).
